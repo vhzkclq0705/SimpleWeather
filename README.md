@@ -1,5 +1,5 @@
 # SimpleWeather
-This app is a simple app similar SymbolRoller that I made before.
+This app is a simple app similar to SymbolRoller that I made before.
 
 Tap the button to chage the city, weather, temperature and daily forecast.
 
