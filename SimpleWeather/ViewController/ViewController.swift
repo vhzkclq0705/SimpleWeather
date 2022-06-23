@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         collectionView.register(
             UINib(nibName: "CollectionViewCell", bundle: nil),
             forCellWithReuseIdentifier: "cell")
+        reload()
     }
 }
 
@@ -35,7 +36,6 @@ extension ViewController: UICollectionViewDelegate,
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath)
     -> UICollectionViewCell {
-        
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "cell",
             for: indexPath) as? CollectionViewCell else {
@@ -66,7 +66,15 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension ViewController {
+    func reload() {
+        cityLabel.text = cities.randomElement()
+        weatherImageView.image = UIImage(systemName: weathers.randomElement()!)?
+            .withRenderingMode(.alwaysOriginal)
+        temperatureLabel.text = "\(Int.random(in: 10...30))º"
+        collectionView.reloadData()
+    }
+    
     @IBAction func didTapChangeButton(_ sender: Any) {
-        
+        reload()
     }
 }

@@ -15,7 +15,8 @@ class CollectionViewCell: UICollectionViewCell {
     
     func updateUI(day: String, weather: String ,temp: Int) {
         dayLabel.text = day
-        weatherImageView.image = UIImage(systemName: weather)
+        weatherImageView.image = UIImage(systemName: weather)?
+            .withRenderingMode(.alwaysOriginal)
         temperatureLabel.text = "\(temp)º"
     }
 }
